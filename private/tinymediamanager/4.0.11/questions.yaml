@@ -96,6 +96,27 @@ questions:
             type: string
             private: true
             default: ""
+  - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: USER_ID
+          label: "USER_ID"
+          description: "ID of the user tinyMediaManager runs as."
+          schema:
+            hidden: true
+            type: int
+            default: 0
+        - variable: GROUP_ID
+          label: "GROUP_ID"
+          description: "ID of the group tinyMediaManager runs as."
+          schema:
+            hidden: true
+            type: int
+            default: 0
   - variable: TZ
     label: Timezone
     group: "General Settings"
@@ -960,7 +981,7 @@ questions:
                 description: When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps
                 schema:
                   type: int
-                  default: 568
+                  default: 0
               - variable: UMASK
                 label: UMASK
                 description: When supported by the container, this sets the UMASK for the App. Not supported by all Apps
