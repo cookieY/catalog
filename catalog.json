@@ -1,0 +1,20 @@
+{
+      "charts": {},
+      "test": {},
+      "enterprise": {
+            "tinymediamanager": {
+                  "name": "tinymediamanager",
+                  "categories": [
+                        "media"
+                  ],
+                  "app_readme": "<p>TinyMediaManager is a full featured media manager to organize and clean up your media library.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/private/tinymediamanager\">https://truecharts.org/charts/private/tinymediamanager</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+                  "location": "/home/runner/work/catalog/catalog/private/tinymediamanager",
+                  "healthy": true,
+                  "healthy_error": null,
+                  "latest_version": "4.0.11",
+                  "latest_app_version": "4.3.7",
+                  "latest_human_version": "4.3.7_4.0.11",
+                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/tinymediamanager.png"
+            }
+      }
+}
