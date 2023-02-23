@@ -5,21 +5,14 @@ image:
 
 securityContext:
   runAsNonRoot: false
-  allowPrivilegeEscalation: true
   readOnlyRootFilesystem: false
-  privileged: true
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
 
 secretEnv:
   PASSWORD: ""
-
-env:
-  USER_ID: 0
-  GROUP_ID: 0
 
 service:
   main:
