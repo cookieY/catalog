@@ -14,11 +14,7 @@ spec:
     accessControlAllowHeaders:
     - '*'
     accessControlAllowMethods:
-    - GET
-    - OPTIONS
-    - HEAD
-    - PUT
-    - POST
+    - '*'
     accessControlAllowOriginList:
     - '*'
     accessControlMaxAge: 100
