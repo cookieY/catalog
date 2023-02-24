@@ -191,10 +191,6 @@ service:
           trustedIPs: []
           # -- Trust every incoming connection
           insecureMode: false
-    portsList:
-      - portsListEntry:
-          name: websecure-udp
-          protocol: UDP
   #      tcpexample:
   #        enabled: true
   #        targetPort: 9443
