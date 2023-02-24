@@ -121,6 +121,7 @@ tlsOptions:
     sniStrict: false
     minVersion: VersionTLS12
     curvePreferences:
+      - X25519
       - CurveP521
       - CurveP384
     cipherSuites:
