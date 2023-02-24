@@ -1103,7 +1103,7 @@ questions:
                                     default: true
                                     hidden: true
               - variable: portsList
-                label: "Additional TCP Entrypoints"
+                label: "Additional Entrypoints"
                 schema:
                   type: list
                   default: []
@@ -1135,6 +1135,8 @@ questions:
                                   description: "HTTP"
                                 - value: "HTTPS"
                                   description: "HTTPS"
+                                - value: "UDP"
+                                  description: "UDP"
                                 - value: TCP
                                   description: "TCP"
                           - variable: port

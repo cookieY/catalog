@@ -20,14 +20,12 @@ args:
   {{- $_ := set $config "protocol" "TCP" }}
   {{- end }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
-  {{- if ( eq $name "websecure" )}}
-  - "--entrypoints.name.http3.advertisedport={{ $config.port }}"
-  - "--experimental.http3=true"
-  {{- end }}
   {{- end }}
   {{- end }}
   - "--api.dashboard=true"
   - "--ping=true"
+  - "--entrypoints.websecureh3.http3.advertisedport=443"
+  - "--experimental.http3=true"
   {{- if .Values.metrics }}
   {{- if .Values.metrics.datadog }}
   - "--metrics.datadog=true"
