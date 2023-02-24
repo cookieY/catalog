@@ -1148,7 +1148,7 @@ questions:
                             schema:
                               type: boolean
                               default: false
-                              show_if: [["http3","=","true"]]
+                              show_if: [["protocol","=","UDP"]]
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
