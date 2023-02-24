@@ -19,15 +19,15 @@ args:
   {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" )}}
   {{- $_ := set $config "protocol" "TCP" }}
   {{- end }}
-  {{- if ne $name "websecure-udp" }}
+  {{- if not $config.http3 }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
   {{- end }}
-  {{- if ( eq $name "websecure" )}}
+  {{- if $config.http3 }}
   - "--entrypoints.{{$name}}.http3.advertisedport={{ $config.port }}"
+  {{- end }}
+  {{- end }}
+  {{- end }}
   - "--experimental.http3=true"
-  {{- end }}
-  {{- end }}
-  {{- end }}
   - "--api.dashboard=true"
   - "--ping=true"
   {{- if .Values.metrics }}
@@ -104,7 +104,7 @@ args:
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
   {{- end }}
   {{- end }}
-  {{- if ne $entrypoint "websecure-udp" }}
+  {{- if not $config.http3}}
   {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
   {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" )}}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
