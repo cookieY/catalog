@@ -1148,7 +1148,7 @@ questions:
                             schema:
                               type: boolean
                               default: false
-                              show_if: [["protocol","==","HTTPS"]]
+                              show_if: [["protocol","=","HTTPS"]]
                           - variable: http3enrypoint
                             label: "Is http3 UDP entrypoint"
                             schema:
