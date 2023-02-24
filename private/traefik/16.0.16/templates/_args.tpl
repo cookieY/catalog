@@ -102,8 +102,9 @@ args:
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
   {{- end }}
   {{- end }}
+  {{- if ne ($entrypoint "websecure-udp")}}
   {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
-  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" )  and  (ne $entrypoint "websecure-udp")}}
+  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" )}}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
   {{- if $config.tls.options }}
   - "--entrypoints.{{ $entrypoint }}.http.tls.options={{ $config.tls.options }}"
@@ -118,6 +119,7 @@ args:
   {{- end }}
   {{- if $domain.sans }}
   - "--entrypoints.{{ $entrypoint }}.http.tls.domains[{{ $index }}].sans={{ join "," $domain.sans }}"
+  {{- end }}
   {{- end }}
   {{- end }}
   {{- end }}
