@@ -20,10 +20,6 @@ args:
   {{- $_ := set $config "protocol" "TCP" }}
   {{- end }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
-  {{- if ( eq $config.protocol "HTTPS" )}}
-  - "--entrypoints.name.http3.advertisedport={{ $config.port }}"
-  - "--experimental.http3=true"
-  {{- end }}
   {{- end }}
   {{- end }}
   - "--api.dashboard=true"
