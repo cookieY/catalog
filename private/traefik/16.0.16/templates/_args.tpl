@@ -16,7 +16,7 @@ args:
   {{- end }}
   {{- range $name, $config := $ports }}
   {{- if $config }}
-  {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" ) }}
+  {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" ) (ne $name "websecure-udp") }}
   {{- $_ := set $config "protocol" "TCP" }}
   {{- end }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
@@ -103,7 +103,7 @@ args:
   {{- end }}
   {{- end }}
   {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
-  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" ) }}
+  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" ) (ne $name "websecure-udp")  }}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
   {{- if $config.tls.options }}
   - "--entrypoints.{{ $entrypoint }}.http.tls.options={{ $config.tls.options }}"
