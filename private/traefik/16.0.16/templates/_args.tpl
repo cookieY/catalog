@@ -16,10 +16,12 @@ args:
   {{- end }}
   {{- range $name, $config := $ports }}
   {{- if $config }}
-  {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" ) and (ne $name "websecure-udp") }}
+  {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" )}}
   {{- $_ := set $config "protocol" "TCP" }}
   {{- end }}
+  {{- if ne $name "websecure-udp" }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
+  {{- end }}
   {{- if ( eq $name "websecure" )}}
   - "--entrypoints.{{$name}}.http3.advertisedport={{ $config.port }}"
   - "--experimental.http3=true"
