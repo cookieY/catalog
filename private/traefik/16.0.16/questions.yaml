@@ -915,7 +915,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9080
+                              default: 80
                               required: true
                           - variable: advanced
                             label: Show Advanced Settings
@@ -1008,7 +1008,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9443
+                              default: 443
                               required: true
                           - variable: advanced
                             label: Show Advanced Settings
@@ -1143,6 +1143,12 @@ questions:
                                   description: "UDP"
                                 - value: TCP
                                   description: "TCP"
+                          - variable: http3
+                            label: "Enabled http3"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_if: [["protocol","==","HTTPS"]]
                           - variable: http3enrypoint
                             label: "Is http3 UDP entrypoint"
                             schema:
@@ -1154,7 +1160,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9443
+                              default: 443
                               required: true
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
