@@ -1143,7 +1143,7 @@ questions:
                                   description: "UDP"
                                 - value: TCP
                                   description: "TCP"
-                          - variable: http3
+                          - variable: http3enrypoint
                             label: "Is http3 UDP entrypoint"
                             schema:
                               type: boolean
