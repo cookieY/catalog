@@ -1128,12 +1128,12 @@ questions:
                             label: "Entrypoints Name"
                             schema:
                               type: string
-                              default: "websecure-udp"
+                              default: ""
                           - variable: protocol
                             label: "Entrypoints Type"
                             schema:
                               type: string
-                              default: "UDP"
+                              default: "TCP"
                               enum:
                                 - value: HTTP
                                   description: "HTTP"
@@ -1143,12 +1143,18 @@ questions:
                                   description: "UDP"
                                 - value: TCP
                                   description: "TCP"
+                          - variable: http3
+                                - label: "Enabled http3"
+                                - schema:
+                                    type: boolean
+                                    default: false
+                                    show_if: [["http3","=","true"]]
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 443
+                              default: 9443
                               required: true
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
