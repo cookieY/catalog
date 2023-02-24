@@ -48,7 +48,7 @@
   
   ### Feat
 
-- move Grafana, Prometheus and Traefik to Enterprise Train ([#6372](https://github.com/truecharts/charts/issues/6372))
+- move Grafana, Prometheus and Traefik to private Train ([#6372](https://github.com/truecharts/charts/issues/6372))
   
   ### Fix
 

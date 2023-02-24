@@ -1,6 +1,6 @@
 Traefik is a flexible reverse proxy and Ingress Provider.
 
-This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/enterprise/traefik](https://truecharts.org/charts/enterprise/traefik)
+This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/private/traefik](https://truecharts.org/charts/private/traefik)
 
 ---
 
