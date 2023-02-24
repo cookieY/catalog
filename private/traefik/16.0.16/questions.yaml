@@ -1017,6 +1017,10 @@ questions:
                               default: false
                               show_subquestions_if: true
                               subquestions:
+                                - variable: http3
+                                  label: "Enabled http3"
+                                  schema:
+                                    type: boolean
                                 - variable: redirectPort
                                   label: "Redirect to Port"
                                   schema:
