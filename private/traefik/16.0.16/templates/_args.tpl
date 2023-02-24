@@ -103,7 +103,7 @@ args:
   {{- end }}
   {{- end }}
   {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
-  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" )  and  (ne $name "websecure-udp")}}
+  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" )  and  (ne $entrypoint "websecure-udp")}}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
   {{- if $config.tls.options }}
   - "--entrypoints.{{ $entrypoint }}.http.tls.options={{ $config.tls.options }}"
