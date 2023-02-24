@@ -102,7 +102,7 @@ args:
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
   {{- end }}
   {{- end }}
-  {{- if ne ($entrypoint "websecure-udp")}}
+  {{- if ne $entrypoint "websecure-udp" }}
   {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
   {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" )}}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
