@@ -19,7 +19,7 @@ args:
   {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" )}}
   {{- $_ := set $config "protocol" "TCP" }}
   {{- end }}
-  {{- if not $config.http3 }}
+  {{- if not $config.http3enrypoint }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
   {{- end }}
   {{- if $config.http3 }}
