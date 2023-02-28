@@ -36,7 +36,7 @@
                         "networking"
                   ],
                   "app_readme": "<p>Automate Cloudflare DNS records for those with a dynamic IP.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/cloudflareddns\">https://truecharts.org/charts/stable/cloudflareddns</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-                  "location": "/home/runner/work/catalog/catalog/stable/cloudflareddns",
+                  "location": "/home/runner/work/catalog/catalog/private/cloudflareddns",
                   "healthy": true,
                   "healthy_error": null,
                   "latest_version": "4.0.6",
