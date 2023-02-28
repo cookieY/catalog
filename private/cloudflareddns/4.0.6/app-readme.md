@@ -1,6 +1,6 @@
 Automate Cloudflare DNS records for those with a dynamic IP.
 
-This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/private/cloudflareddns](https://truecharts.org/charts/private/cloudflareddns)
+This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/stable/cloudflareddns](https://truecharts.org/charts/stable/cloudflareddns)
 
 ---
 
