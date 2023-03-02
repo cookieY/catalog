@@ -96,9 +96,9 @@ questions:
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: https_proxy
+              - variable: http_proxy
                 label: "HTTP PROXY"
-                description: "https_proxy"
+                description: "http_proxy"
                 schema:
                   type: string
                   default: ""

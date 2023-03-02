@@ -67,9 +67,9 @@
                   "location": "/home/runner/work/catalog/catalog/stable/jellyseerr",
                   "healthy": true,
                   "healthy_error": null,
-                  "latest_version": "4.0.12",
+                  "latest_version": "4.0.13",
                   "latest_app_version": "1.4.1",
-                  "latest_human_version": "1.4.1_4.0.12",
+                  "latest_human_version": "1.4.1_4.0.13",
                   "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/jellyseerr.png"
             }
       }
