@@ -89,6 +89,19 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: proxy
+          label: "enable http proxy"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: https_proxy
+                label: "HTTP PROXY"
+                description: "https_proxy"
+                schema:
+                  type: string
+                  default: ""
         - variable: JELLYFIN_TYPE
           label: "JELLYFIN_TYPE"
           description: "For Emby users set this to emby, otherwise leave it blank"
