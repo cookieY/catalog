@@ -44,7 +44,7 @@
                   "latest_human_version": "latest_4.0.6",
                   "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png"
             },
-            "custom-app": {
+            "henry-app": {
                   "name": "henry-app",
                   "categories": [
                         "henry"
@@ -57,6 +57,20 @@
                   "latest_app_version": "0.20.2297",
                   "latest_human_version": "0.20.2297_7.0.23",
                   "icon_url": "https://cloud.henrylabs.app/?explorer/share/file&hash=e0ddq3H37PHH-SV6PYeukEPgkEMGXPTX3KJHoOqrwR1_OcB_1PsYxMdSZ6oIAM18eQ"
+            },
+            "jellyseerr": {
+                  "name": "jellyseerr",
+                  "categories": [
+                        "media"
+                  ],
+                  "app_readme": "<p>Jellyseerr is a fork of Overseerr with support for Jellyfin and Emby. It can be used to manage requests for your media library.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/jellyseerr\">https://truecharts.org/charts/stable/jellyseerr</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+                  "location": "/home/runner/work/catalog/catalog/stable/jellyseerr",
+                  "healthy": true,
+                  "healthy_error": null,
+                  "latest_version": "4.0.12",
+                  "latest_app_version": "1.4.1",
+                  "latest_human_version": "1.4.1_4.0.12",
+                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/jellyseerr.png"
             }
       }
 }
