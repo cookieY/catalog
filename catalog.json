@@ -53,9 +53,9 @@
                   "location": "/home/runner/work/catalog/catalog/stable/custom-app",
                   "healthy": true,
                   "healthy_error": null,
-                  "latest_version": "7.0.23",
-                  "latest_app_version": "0.20.2297",
-                  "latest_human_version": "0.20.2297_7.0.23",
+                  "latest_version": "8.0.0",
+                  "latest_app_version": "0.23.0307",
+                  "latest_human_version": "0.23.0307_8.0.0",
                   "icon_url": "https://cloud.henrylabs.app/?explorer/share/file&hash=e0ddq3H37PHH-SV6PYeukEPgkEMGXPTX3KJHoOqrwR1_OcB_1PsYxMdSZ6oIAM18eQ"
             },
             "jellyseerr": {
