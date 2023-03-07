@@ -404,6 +404,20 @@ questions:
                             schema:
                               type: int
                               required: true
+              - variable: dnsPolicy
+                label: "DNS Policy"
+                schema:
+                  type: string
+                  default: "Default"
+                  enum:
+                    - value: "Default"
+                      description: "Use Default DNS Policy where Pod will inherit the name resolution configuration from the node."
+                    - value: "ClusterFirst"
+                      description: "ClusterFirst"
+                    - value: "ClusterFirstWithHostNet"
+                      description: "For Pods running with hostNetwork and wanting to prioritise internal kubernetes DNS should make use of this policy."
+                    - value: "None"
+                      description: "Ignore DNS settings from the Kubernetes cluster"
   - variable: serviceexpert
     group: Networking and Services
     label: Show Expert Config
