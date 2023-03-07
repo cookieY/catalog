@@ -413,11 +413,58 @@ questions:
                     - value: "Default"
                       description: "Use Default DNS Policy where Pod will inherit the name resolution configuration from the node."
                     - value: "ClusterFirst"
-                      description: "ClusterFirst"
+                      description: "Kubernetes internal DNS will be prioritised and resolved first."
                     - value: "ClusterFirstWithHostNet"
                       description: "For Pods running with hostNetwork and wanting to prioritise internal kubernetes DNS should make use of this policy."
                     - value: "None"
                       description: "Ignore DNS settings from the Kubernetes cluster"
+              - variable: dnsConfig
+                  label: "DNS Configuration"
+                  description: "Specify custom DNS configuration which will be applied to the pod"
+                  schema:
+                    type: dict
+                    attrs:
+                      - variable: nameservers
+                        label: "Nameservers"
+                        schema:
+                          default: []
+                          type: list
+                          items:
+                            - variable: nameserver
+                              label: "Nameserver"
+                              schema:
+                                type: string
+                      - variable: searches
+                        label: "Searches"
+                        schema:
+                          default: []
+                          type: list
+                          items:
+                            - variable: search
+                              label: "Search Entry"
+                              schema:
+                                type: string
+                      - variable: options
+                        label: "DNS Options"
+                        schema:
+                          type: list
+                          items:
+                            - variable: optionsEntry
+                              label: "Option Entry Configuration"
+                              schema:
+                                type: dict
+                                attrs:
+                                  - variable: name
+                                    label: "Option Name"
+                                    schema:
+                                      type: string
+                                      required: true
+                                  - variable: value
+                                    label: "Option Value"
+                                    schema:
+                                      type: string
+                                      required: true
+ 
   - variable: serviceexpert
     group: Networking and Services
     label: Show Expert Config
