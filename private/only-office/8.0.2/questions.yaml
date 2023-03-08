@@ -51,7 +51,6 @@ questions:
             hidden: true
   - variable: controller
     group: "General Settings"
-    label: ""
     schema:
       additional_attrs: true
       type: dict
