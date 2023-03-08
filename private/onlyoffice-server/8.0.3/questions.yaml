@@ -118,6 +118,7 @@ questions:
           label: "DB_PWD"
           schema:
             type: string
+            private: true
             default: ""
         - variable: REDIS_SERVER_HOST
           label: "REDIS_SERVER_HOST"
