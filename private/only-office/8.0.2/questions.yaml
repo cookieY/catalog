@@ -137,6 +137,7 @@ questions:
             hidden: true
   - variable: probes
     group: "App Configuration"
+    hidden: true
     label: "Healthcheck Probes"
     schema:
       additional_attrs: true
@@ -320,12 +321,14 @@ questions:
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
                             schema:
+                              default: 80
                               type: int
                               required: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
+                              default: 80
                               type: int
                               required: true
               - variable: portsList
