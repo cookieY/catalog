@@ -89,39 +89,48 @@ questions:
             - value: "true"
               description: "true"
       - variable: DB_TYPE
+        label: "DB_TYPE"
         schema:
           type: string
           default: mysql
           hidden: true
       - variable: DB_HOST
+        label: "DB_HOST"
         schema:
           type: string
           default: ""
       - variable: DB_PORT
+        label: "DB_PORT"
         schema:
           type: string
           default: ""
       - variable: DB_NAME
+        label: "DB_NAME"
         schema:
           type: string
           default: ""
       - variable: DB_USER
+        label: "DB_USER"
         schema:
           type: string
           default: ""
       - variable: DB_PWD
+        label: "DB_PWD"
         schema:
           type: string
           default: ""
       - variable: REDIS_SERVER_HOST
+        label: "REDIS_SERVER_HOST"
         schema:
           type: string
           default: ""
       - variable: REDIS_SERVER_PORT
+        label: "REDIS_SERVER_PORT"
         schema:
           type: string
           default: ""
       - variable: WOPI_ENABLED
+        label: "WOPI_ENABLED"
         schema:
           type: string
           default: "true"
