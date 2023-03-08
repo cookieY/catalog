@@ -1,0 +1,12 @@
+image:
+  repository: cloudreve/cloudreve
+  pullPolicy: IfNotPresent
+  tag: 3.7.1@sha256:2b59d3059bab3c2636bf906b48932cb9b254c2f80a6dbff2ed4c5cba3769ad66
+
+portal:
+  enabled: true
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
