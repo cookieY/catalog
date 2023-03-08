@@ -8,7 +8,7 @@ icon:
 keywords:
   - office
 kubeVersion: ">=1.16.0-0"
-name: only-office
+name: onlyoffice-server
 type: application
 version: 8.0.2
 annotations:

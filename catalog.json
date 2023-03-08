@@ -72,8 +72,8 @@
                   "latest_human_version": "1.4.1_4.0.14",
                   "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/jellyseerr.png"
             },
-            "onlyoffice-document-server": {
-                  "name": "only-office",
+            "onlyoffice-server": {
+                  "name": "onlyoffice-server",
                   "categories": [
                         "office",
                         "documents",
