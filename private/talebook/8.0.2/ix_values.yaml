@@ -1,7 +1,7 @@
 image:
-  repository: cloudreve/cloudreve
+  repository: talebook/talebook
   pullPolicy: IfNotPresent
-  tag: 3.7.1@sha256:2b59d3059bab3c2636bf906b48932cb9b254c2f80a6dbff2ed4c5cba3769ad66
+  tag: v3.6.4@sha256:3709292b8dd4c1596af1b47b2e2d960f00b752ffd9aaef3d72ba5bd58c54b16e
 
 portal:
   enabled: true
