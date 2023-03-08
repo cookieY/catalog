@@ -1104,7 +1104,7 @@ questions:
     group: Security and Permissions
     schema:
       type: boolean
-      default: false
+      default: true
       show_subquestions_if: true
       subquestions:
         - variable: securityContext
@@ -1132,7 +1132,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
   - variable: podSecurityContext
     group: Security and Permissions
     label: Pod Security Context
@@ -1145,13 +1145,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
