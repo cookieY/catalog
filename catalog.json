@@ -73,7 +73,7 @@
                   "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/jellyseerr.png"
             },
             "onlyoffice-document-server": {
-                  "name": "onlyOffice",
+                  "name": "only-office",
                   "categories": [
                         "office",
                         "documents",
