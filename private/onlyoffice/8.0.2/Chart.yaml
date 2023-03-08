@@ -4,7 +4,7 @@ dependencies:
   - name: common
     version: 11.1.3
 deprecated: false
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlyoffice-document-server.png
+icon: 
 keywords:
   - office
 kubeVersion: ">=1.16.0-0"
