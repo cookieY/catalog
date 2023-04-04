@@ -122,10 +122,10 @@
                   "app_readme": "<p>一款为Nas玩家准备的照片管理系统. </p>",
                   "healthy": true,
                   "healthy_error": null,
-                  "latest_version": "1.16.3",
+                  "latest_version": "1.17.0",
                   "latest_app_version": "0.23.0308",
-                  "latest_human_version": "1.16.3_0.23.0308",
-                  "icon_url": "https://mtmt.tech/static/app-logo-1c6fd3ff4d6acf787fd93b93a3c123b3.png"
+                  "latest_human_version": "1.17.0_0.23.0308",
+                  "icon_url": "https://cdn.mtmt.tech/logo-1024.png"
             }
       }
 }
