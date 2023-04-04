@@ -25,8 +25,8 @@
                   "location": "/home/runner/work/catalog/catalog/private/traefik",
                   "healthy": true,
                   "healthy_error": null,
-                  "latest_version": "2.9.9",
-                  "latest_app_version": "23.4.04",
+                  "latest_version": "23.4.04",
+                  "latest_app_version": "2.9.9",
                   "latest_human_version": "2.9.9_23.4.04",
                   "icon_url": "https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Traefik_B.png"
             },
