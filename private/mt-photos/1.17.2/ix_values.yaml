@@ -1,0 +1,15 @@
+image:
+  repository: mtphotos/mt-photos
+  pullPolicy: IfNotPresent
+  tag: nodb-1.17.2@sha256:5dcc2623296b8ce557911c93091373d73d71a5b8a5e023c1d736e969834385e2
+
+portal:
+  enabled: true
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  upload:
+    enabled: true
+    mountPath: "/upload"
