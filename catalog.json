@@ -122,9 +122,9 @@
                   "location": "/home/runner/work/catalog/catalog/stable/custom-app",
                   "healthy": true,
                   "healthy_error": null,
-                  "latest_version": "8.0.1",
+                  "latest_version": "8.0.2",
                   "latest_app_version": "0.20.2297",
-                  "latest_human_version": "0.20.2297_8.0.1",
+                  "latest_human_version": "0.20.2297_8.0.2",
                   "icon_url": "https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Docker_registry_B.png"
             }
       }

@@ -5,7 +5,7 @@ image:
 
 portal:
   open:
-    enabled: false
+    enabled: true
 
 workload:
   main:
