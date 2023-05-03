@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "0.23.0307"
+appVersion: "0.20.2297"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.3
+    version: 12.6.1
 deprecated: false
 description: Advanced tool to create your own TrueCharts-based App
 home: https://truecharts.org/charts/stable/custom-app
-icon: https://cloud.henrylabs.app/?explorer/share/file&hash=e0ddq3H37PHH-SV6PYeukEPgkEMGXPTX3KJHoOqrwR1_OcB_1PsYxMdSZ6oIAM18eQ
+icon: https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Docker_registry_B.png
 keywords:
   - custom
 kubeVersion: ">=1.16.0-0"
@@ -15,13 +15,12 @@ maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: henry-app
+name: custom-app
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/custom-app
 type: application
-version: 8.0.2
+version: 8.0.0
 annotations:
   truecharts.org/catagories: |
-    - henry
+    - custom
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
