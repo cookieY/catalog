@@ -267,13 +267,13 @@ questions:
                       description: "Probe Type"
                       schema:
                         type: string
-                        default: "TCP"
+                        default: "tcp"
                         enum:
-                          - value: "TCP"
+                          - value: "tcp"
                             description: "TCP"
-                          - value: "HTTP"
+                          - value: "http"
                             description: "HTTP"
-                          - value: "HTTPS"
+                          - value: "https"
                             description: "HTTPS"
                     - variable: path
                       label: "Probe Path"
