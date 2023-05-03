@@ -44,20 +44,6 @@
                   "latest_human_version": "latest_4.0.6",
                   "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png"
             },
-            "henry-app": {
-                  "name": "henry-app",
-                  "categories": [
-                        "henry"
-                  ],
-                  "app_readme": "<p>Advanced tool to create your own TrueCharts-based App</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/custom-app\">https://truecharts.org/charts/stable/custom-app</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-                  "location": "/home/runner/work/catalog/catalog/stable/custom-app",
-                  "healthy": true,
-                  "healthy_error": null,
-                  "latest_version": "8.0.2",
-                  "latest_app_version": "0.23.0307",
-                  "latest_human_version": "0.23.0307_8.0.2",
-                  "icon_url": "https://cloud.henrylabs.app/?explorer/share/file&hash=e0ddq3H37PHH-SV6PYeukEPgkEMGXPTX3KJHoOqrwR1_OcB_1PsYxMdSZ6oIAM18eQ"
-            },
             "jellyseerr": {
                   "name": "jellyseerr",
                   "categories": [
@@ -126,20 +112,20 @@
                   "latest_app_version": "0.23.0308",
                   "latest_human_version": "1.17.2_0.23.0308",
                   "icon_url": "https://cdn.mtmt.tech/logo-1024.png"
+            },
+            "custom-app": {
+                  "name": "custom-app",
+                  "categories": [
+                        "custom"
+                  ],
+                  "app_readme": "<p>Advanced tool to create your own TrueCharts-based App</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/custom-app\">https://truecharts.org/charts/stable/custom-app</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+                  "location": "/home/runner/work/catalog/catalog/stable/custom-app",
+                  "healthy": true,
+                  "healthy_error": null,
+                  "latest_version": "8.0.0",
+                  "latest_app_version": "0.20.2297",
+                  "latest_human_version": "0.20.2297_8.0.0",
+                  "icon_url": "https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Docker_registry_B.png"
             }
-      },
-      "custom-app": {
-            "name": "custom-app",
-            "categories": [
-                  "custom"
-            ],
-            "app_readme": "<p>Advanced tool to create your own TrueCharts-based App</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/custom-app\">https://truecharts.org/charts/stable/custom-app</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-            "location": "/home/runner/work/catalog/catalog/stable/custom-app",
-            "healthy": true,
-            "healthy_error": null,
-            "latest_version": "8.0.0",
-            "latest_app_version": "0.20.2297",
-            "latest_human_version": "0.20.2297_8.0.0",
-            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png"
       }
 }
