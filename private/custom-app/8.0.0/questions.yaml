@@ -270,11 +270,11 @@ questions:
                         default: "tcp"
                         enum:
                           - value: "tcp"
-                            description: "TCP"
+                            description: "tcp"
                           - value: "http"
-                            description: "HTTP"
+                            description: "http"
                           - value: "https"
-                            description: "HTTPS"
+                            description: "https"
                     - variable: path
                       label: "Probe Path"
                       description: "Probe Path"
@@ -301,14 +301,14 @@ questions:
                       description: "Probe Type"
                       schema:
                         type: string
-                        default: "TCP"
+                        default: "tcp"
                         enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
+                          - value: "tcp"
+                            description: "tcp"
+                          - value: "http"
+                            description: "http"
+                          - value: "https"
+                            description: "https"
                     - variable: path
                       label: "Probe Path"
                       description: "Probe Path"
@@ -335,14 +335,14 @@ questions:
                       description: "Probe Type"
                       schema:
                         type: string
-                        default: "TCP"
+                        default: "tcp"
                         enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
+                          - value: "tcp"
+                            description: "tcp"
+                          - value: "http"
+                            description: "http"
+                          - value: "https"
+                            description: "https"
                     - variable: path
                       label: "Probe Path"
                       description: "Probe Path"
@@ -409,14 +409,14 @@ questions:
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "HTTP"
+                              default: "http"
                               enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
+                                - value: http
+                                  description: "http"
+                                - value: "https"
+                                  description: "https"
+                                - value: tcp
+                                  description: "tcp"
                                 - value: "UDP"
                                   description: "UDP"
                           - variable: targetPort
@@ -458,14 +458,14 @@ questions:
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "TCP"
+                              default: "tcp"
                               enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
+                                - value: http
+                                  description: "http"
+                                - value: "https"
+                                  description: "https"
+                                - value: tcp
+                                  description: "tcp"
                                 - value: "UDP"
                                   description: "UDP"
                           - variable: targetPort
@@ -687,11 +687,11 @@ questions:
                                     default: tcp
                                     enum:
                                       - value: http
-                                        description: HTTP
+                                        description: http
                                       - value: https
-                                        description: HTTPS
+                                        description: https
                                       - value: tcp
-                                        description: TCP
+                                        description: tcp
                                       - value: udp
                                         description: UDP
                                 - variable: targetPort
@@ -1462,7 +1462,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: TCP
+                                                                default: tcp
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1508,7 +1508,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: TCP
+                                                                default: tcp
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1552,10 +1552,10 @@ questions:
                                             label: Protocol
                                             schema:
                                               type: string
-                                              default: TCP
+                                              default: tcp
                                               enum:
-                                                - value: TCP
-                                                  description: TCP
+                                                - value: tcp
+                                                  description: tcp
                                                 - value: UDP
                                                   description: UDP
                                                 - value: SCTP
@@ -1631,7 +1631,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: TCP
+                                                                default: tcp
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1677,7 +1677,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: TCP
+                                                                default: tcp
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1721,10 +1721,10 @@ questions:
                                             label: Protocol
                                             schema:
                                               type: string
-                                              default: TCP
+                                              default: tcp
                                               enum:
-                                                - value: TCP
-                                                  description: TCP
+                                                - value: tcp
+                                                  description: tcp
                                                 - value: UDP
                                                   description: UDP
                                                 - value: SCTP
@@ -1943,8 +1943,8 @@ questions:
                         type: string
                         default: ""
                     - variable: outbound_http_proxy_listen
-                      label: Outbound HTTP Proxy Listen
-                      description: The address on which to listen for HTTP proxying into the tailscale net.
+                      label: Outbound http Proxy Listen
+                      description: The address on which to listen for http proxying into the tailscale net.
                       schema:
                         type: string
                         default: ""
