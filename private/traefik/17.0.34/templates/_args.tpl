@@ -20,7 +20,7 @@ args:
   {{- $_ := set $config "protocol" "tcp" }}
   {{- end }}
   {{- if eq $config.protocol "tcp"}}
-   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
+  - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
   {{- end }}
   {{- if eq $config.protocol "udp"}}
   - "--entryPoints.{{$name}}.http3.advertisedport={{ $config.port }}"
