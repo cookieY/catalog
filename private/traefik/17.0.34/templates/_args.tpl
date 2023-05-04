@@ -24,7 +24,7 @@ args:
   {{- end }}
   {{- if eq $config.protocol "udp"}}
   - "--entryPoints.{{$name}}.http3.advertisedport={{ $config.port }}"
-  {{- end}}
+  {{- end }}
   {{- end }}
   {{- end }}
   - "--experimental.http3=true"
