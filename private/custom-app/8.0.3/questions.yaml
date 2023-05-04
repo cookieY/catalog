@@ -196,7 +196,7 @@ questions:
           group: Networking and Services
           schema:
             type: string
-            default: "Default"
+            default: "ClusterFirst"
             enum:
               - value: "Default"
                 description: "Use Default DNS Policy where Pod will inherit the name resolution configuration from the node."
@@ -248,7 +248,8 @@ questions:
                 label: "Searches"
                 schema:
                   type: list
-                  default: []
+                  default: 
+                    - "svc.cluster.local"
                   items:
                     - variable: searchEntry
                       label: "Search Entry"
