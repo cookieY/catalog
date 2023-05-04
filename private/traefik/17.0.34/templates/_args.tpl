@@ -19,9 +19,15 @@ args:
   {{- if or ( eq $config.protocol "http" ) ( eq $config.protocol "https" ) ( eq $config.protocol "tcp" ) }}
   {{- $_ := set $config "protocol" "tcp" }}
   {{- end }}
-  - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
+  {{- if eq $config.protocol "tcp"}}
+   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
+  {{- end }}
+  {{- if eq $config.protocol "udp"}}
+  - "--entryPoints.{{$name}}.http3.advertisedport={{ $config.port }}"
+  {{- end}}
   {{- end }}
   {{- end }}
+  - "--experimental.http3=true"
   - "--api.dashboard=true"
   - "--ping=true"
   {{- if .Values.traefikMetrics }}
