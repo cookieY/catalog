@@ -926,7 +926,7 @@ questions:
                       schema:
                         type: list
                         default:
-                          - default-chain-basic
+                          - chain-basic
                         items:
                           - variable: name
                             label: Name
