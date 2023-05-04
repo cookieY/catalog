@@ -138,10 +138,6 @@ questions:
                                               label: Param
                                               schema:
                                                 type: string
-                                      - variable: http3
-                                        label: "Enabled http3"
-                                        schema:
-                                          type: boolean
   - variable: TZ
     label: Timezone
     group: "General Settings"
