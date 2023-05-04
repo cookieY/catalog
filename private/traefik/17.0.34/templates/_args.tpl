@@ -19,12 +19,10 @@ args:
   {{- if or ( eq $config.protocol "http" ) ( eq $config.protocol "https" ) ( eq $config.protocol "tcp" ) }}
   {{- $_ := set $config "protocol" "tcp" }}
   {{- end }}
-  {{- if eq $config.protocol "tcp"}}
-  - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
-  {{- end }}
-  {{- if eq $config.protocol "udp"}}
+  {{- if  $config.http3}}
   - "--entryPoints.{{$name}}.http3.advertisedport={{ $config.port }}"
   {{- end }}
+  - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
   {{- end }}
   {{- end }}
   - "--experimental.http3=true"

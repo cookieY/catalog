@@ -1101,6 +1101,11 @@ questions:
                               type: int
                               default: 9443
                               required: true
+                          - variable: http3
+                            label: Enable the http3
+                            schema:
+                              type: boolean
+                              default: false
                           - variable: advanced
                             label: Show Advanced Settings
                             schema:
@@ -1211,6 +1216,11 @@ questions:
                               type: boolean
                               default: true
                               hidden: true
+                          - variable: http3
+                            label: Enable the http3
+                            schema:
+                              type: boolean
+                              default: false
                           - variable: name
                             label: Port Name
                             schema:
