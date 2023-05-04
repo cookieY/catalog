@@ -22,7 +22,9 @@ args:
   {{- if  $config.http3}}
   - "--entryPoints.{{$name}}.http3.advertisedport={{ $config.port }}"
   {{- end }}
+  {{- if not $config.fusion}}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
+  {{- end}}
   {{- end }}
   {{- end }}
   - "--experimental.http3=true"
