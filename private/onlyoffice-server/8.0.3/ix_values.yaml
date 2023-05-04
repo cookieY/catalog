@@ -1,7 +1,0 @@
-image:
-  repository: onlyoffice/documentserver
-  pullPolicy: IfNotPresent
-  tag: 7.3@sha256:8488e8be3c664f22dd8dddba3dd1945c635fa72cf978dc3ca6fb127528e6e843
-
-portal:
-  enabled: true

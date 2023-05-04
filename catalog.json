@@ -30,20 +30,6 @@
                   "latest_human_version": "2.9.9_17.0.34",
                   "icon_url": "https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Traefik_B.png"
             },
-            "cloudflareddns": {
-                  "name": "cloudflareddns",
-                  "categories": [
-                        "networking"
-                  ],
-                  "app_readme": "<p>Automate Cloudflare DNS records for those with a dynamic IP.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/private/cloudflareddns\">https://truecharts.org/charts/private/cloudflareddns</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-                  "location": "/home/runner/work/catalog/catalog/private/cloudflareddns",
-                  "healthy": true,
-                  "healthy_error": null,
-                  "latest_version": "4.0.6",
-                  "latest_app_version": "latest",
-                  "latest_human_version": "latest_4.0.6",
-                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png"
-            },
             "jellyseerr": {
                   "name": "jellyseerr",
                   "categories": [
@@ -58,61 +44,6 @@
                   "latest_human_version": "1.4.1_4.0.16",
                   "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/jellyseerr.png"
             },
-            "onlyoffice-server": {
-                  "name": "onlyoffice-server",
-                  "categories": [
-                        "office",
-                        "documents",
-                        "productivity"
-                  ],
-                  "app_readme": "<p>ONLYOFFICE Document Server is an online office suite comprising viewers and editors for texts, spreadsheets and presentations, fully compatible with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real time.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/onlyoffice-document-server\">https://truecharts.org/charts/stable/onlyoffice-document-server</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-                  "location": "/home/runner/work/catalog/catalog/stable/onlyoffice-document-server",
-                  "healthy": true,
-                  "healthy_error": null,
-                  "latest_version": "8.0.3",
-                  "latest_app_version": "0.23.0308",
-                  "latest_human_version": "8.0.3_0.23.0308",
-                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/onlyoffice-document-server.png"
-            },
-            "cloudreve": {
-                  "name": "cloudreve",
-                  "categories": [
-                        "cloud"
-                  ],
-                  "app_readme": "<p>Self-hosted file management and sharing system, supports multiple storage providers</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/incubator/cloudreve\">https://truecharts.org/charts/incubator/cloudreve</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-                  "healthy": true,
-                  "healthy_error": null,
-                  "latest_version": "8.0.2",
-                  "latest_app_version": "0.23.0308",
-                  "latest_human_version": "8.0.2_0.23.0308",
-                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/cloudreve.png"
-            },
-            "talebook": {
-                  "name": "talebook",
-                  "categories": [
-                        "book"
-                  ],
-                  "app_readme": "<p>A simple books website. </p>",
-                  "healthy": true,
-                  "healthy_error": null,
-                  "latest_version": "8.0.2",
-                  "latest_app_version": "0.23.0308",
-                  "latest_human_version": "8.0.2_0.23.0308",
-                  "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Calibre_B.png"
-            },
-            "mt-photos": {
-                  "name": "mt-photos",
-                  "categories": [
-                        "photo"
-                  ],
-                  "app_readme": "<p>一款为Nas玩家准备的照片管理系统. </p>",
-                  "healthy": true,
-                  "healthy_error": null,
-                  "latest_version": "1.17.2",
-                  "latest_app_version": "0.23.0308",
-                  "latest_human_version": "1.17.2_0.23.0308",
-                  "icon_url": "https://cdn.mtmt.tech/logo-1024.png"
-            },
             "custom-app": {
                   "name": "custom-app",
                   "categories": [
@@ -122,9 +53,9 @@
                   "location": "/home/runner/work/catalog/catalog/stable/custom-app",
                   "healthy": true,
                   "healthy_error": null,
-                  "latest_version": "8.0.3",
+                  "latest_version": "8.0.4",
                   "latest_app_version": "0.20.2297",
-                  "latest_human_version": "0.20.2297_8.0.3",
+                  "latest_human_version": "0.20.2297_8.0.4",
                   "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png"
             }
       }
