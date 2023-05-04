@@ -1197,7 +1197,7 @@ questions:
                                     default: true
                                     hidden: true
               - variable: portsList
-                label: "Additional TCP Entrypoints"
+                label: "Additional Entrypoints"
                 schema:
                   type: list
                   default: []
@@ -1231,6 +1231,8 @@ questions:
                                   description: "HTTPS"
                                 - value: tcp
                                   description: "TCP"
+                                - value: udp
+                                  description: "UDP"
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
