@@ -1222,11 +1222,6 @@ questions:
                               type: boolean
                               default: true
                               hidden: true
-                          - variable: http3
-                            label: Enable the http3
-                            schema:
-                              type: boolean
-                              default: false
                           - variable: fusion
                             label: Enable fusion port
                             schema:
@@ -1252,7 +1247,7 @@ questions:
                                 - value: udp
                                   description: udp
                           - variable: http3
-                            label: "Enabled http3"
+                            label: "Enabled the http3"
                             schema:
                               type: boolean
                               default: false
