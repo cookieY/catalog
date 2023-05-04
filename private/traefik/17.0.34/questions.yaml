@@ -1251,12 +1251,18 @@ questions:
                                   description: tcp
                                 - value: udp
                                   description: udp
-                          - variable: targetPort
-                            label: Target Port
-                            description: This port exposes the container port on the service
+                          - variable: http3
+                            label: "Enabled http3"
                             schema:
-                              type: int
-                              required: true
+                              type: boolean
+                              default: false
+                              show_if: [["protocol","=","https"]]
+                          - variable: http3enrypoint
+                            label: "Is http3 UDP entrypoint"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_if: [["protocol","=","udp"]]
                           - variable: port
                             label: Container Port
                             schema:
