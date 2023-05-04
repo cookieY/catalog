@@ -1101,11 +1101,6 @@ questions:
                               type: int
                               default: 9443
                               required: true
-                          - variable: fusion
-                            label: Enable fusion port
-                            schema:
-                              type: boolean
-                              default: false
                           - variable: http3
                             label: Enable the http3
                             schema:
@@ -1223,6 +1218,11 @@ questions:
                               hidden: true
                           - variable: http3
                             label: Enable the http3
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: fusion
+                            label: Enable fusion port
                             schema:
                               type: boolean
                               default: false
