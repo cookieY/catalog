@@ -19,15 +19,9 @@ args:
   {{- if or ( eq $config.protocol "http" ) ( eq $config.protocol "https" ) ( eq $config.protocol "tcp" ) }}
   {{- $_ := set $config "protocol" "tcp" }}
   {{- end }}
-  {{- if not $config.http3enrypoint }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
   {{- end }}
-  {{- if $config.http3 }}
-  - "--entrypoints.{{$name}}.http3.advertisedport={{ $config.port }}"
   {{- end }}
-  {{- end }}
-  {{- end }}
-  - "--experimental.http3=true"
   - "--api.dashboard=true"
   - "--ping=true"
   {{- if .Values.traefikMetrics }}
@@ -108,7 +102,6 @@ args:
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
   {{- end }}
   {{- end }}
-  {{- if not $config.http3enrypoint}}
   {{- if or ( $config.tls ) ( eq $config.protocol "https" ) }}
   {{- if or ( $config.tls.enabled ) ( eq $config.protocol "https" ) }}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
@@ -125,7 +118,6 @@ args:
   {{- end }}
   {{- if $domain.sans }}
   - "--entrypoints.{{ $entrypoint }}.http.tls.domains[{{ $index }}].sans={{ join "," $domain.sans }}"
-  {{- end }}
   {{- end }}
   {{- end }}
   {{- end }}

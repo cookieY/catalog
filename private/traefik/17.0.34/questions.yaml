@@ -138,6 +138,7 @@ questions:
                                               label: Param
                                               schema:
                                                 type: string
+
   - variable: TZ
     label: Timezone
     group: "General Settings"
@@ -1193,7 +1194,7 @@ questions:
                                     default: true
                                     hidden: true
               - variable: portsList
-                label: "Additional Entrypoints"
+                label: "Additional TCP Entrypoints"
                 schema:
                   type: list
                   default: []
@@ -1227,26 +1228,12 @@ questions:
                                   description: "HTTPS"
                                 - value: tcp
                                   description: "TCP"
-                                - value: udp
-                                  description: "UDP"
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               required: true
-                          - variable: http3
-                            label: "Enabled http3"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_if: [["protocol","=","https"]]
-                          - variable: http3enrypoint
-                            label: "Is http3 UDP entrypoint"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_if: [["protocol","=","udp"]]
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
@@ -1331,6 +1318,18 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
+                          - variable: tls
+                            label: "websecure Entrypoints Configuration"
+                            schema:
+                              type: dict
+                              hidden: true
+                              attrs:
+                                - variable: enabled
+                                  label: "Enabled"
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                    hidden: true
   - variable: ingress
     label: ""
     group: Ingress
