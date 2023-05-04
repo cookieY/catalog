@@ -152,13 +152,14 @@ additionalArguments:
 tlsOptions:
   default:
     sniStrict: false
-    minVersion: VersionTLS12
+    minVersion: VersionTLS13
     curvePreferences:
+      - X25519
       - CurveP521
       - CurveP384
     cipherSuites:
-      - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
       - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+      - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
       - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
       - TLS_AES_128_GCM_SHA256
       - TLS_AES_256_GCM_SHA384

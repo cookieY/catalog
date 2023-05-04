@@ -466,7 +466,7 @@ questions:
                                   description: "https"
                                 - value: tcp
                                   description: "tcp"
-                                - value: "UDP"
+                                - value: "udp"
                                   description: "UDP"
                           - variable: targetPort
                             label: "Target Port"
@@ -705,6 +705,7 @@ questions:
                                   schema:
                                     type: int
                                     required: true
+
   - variable: persistenceList
     label: Additional App Storage
     group: Storage and Persistence

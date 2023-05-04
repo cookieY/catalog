@@ -1194,142 +1194,280 @@ questions:
                                     default: true
                                     hidden: true
               - variable: portsList
-                label: "Additional TCP Entrypoints"
+                label: Additional Service Ports
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: portsListEntry
-                      label: "Custom Entrypoints"
+                      label: Custom ports
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: enabled
-                            label: "Enable the port"
+                            label: Enable the Port
                             schema:
                               type: boolean
                               default: true
                               hidden: true
                           - variable: name
-                            label: "Entrypoints Name"
+                            label: Port Name
                             schema:
                               type: string
                               default: ""
                           - variable: protocol
-                            label: "Entrypoints Type"
+                            label: Port Type
                             schema:
                               type: string
-                              default: "tcp"
+                              default: tcp
                               enum:
                                 - value: http
-                                  description: "HTTP"
-                                - value: "https"
-                                  description: "HTTPS"
+                                  description: http
+                                - value: https
+                                  description: https
                                 - value: tcp
-                                  description: "TCP"
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                                  description: tcp
+                                - value: udp
+                                  description: UDP
+                          - variable: targetPort
+                            label: Target Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               required: true
-                          - variable: tls
-                            label: "websecure Entrypoints Configuration"
+                          - variable: port
+                            label: Container Port
                             schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: enabled
-                                  label: "Enabled"
+                              type: int
+                              required: true
+
+
+  - variable: serviceexpert
+    group: Networking and Services
+    label: Show Expert Config
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: Networking and Services
+          label: Host-Networking (Complicated)
+          schema:
+            hidden: true
+            type: boolean
+            default: false
+        - variable: scaleExternalInterface
+          description: Add External Interfaces
+          label: Add external Interfaces
+          group: Networking
+          schema:
+            type: list
+            items:
+              - variable: interfaceConfiguration
+                description: Interface Configuration
+                label: Interface Configuration
+                schema:
+                  type: dict
+                  $ref:
+                    - "normalize/interfaceConfiguration"
+                  attrs:
+                    - variable: hostInterface
+                      description: Please Specify Host Interface
+                      label: Host Interface
+                      schema:
+                        type: string
+                        required: true
+                        $ref:
+                          - "definitions/interface"
+                    - variable: ipam
+                      description: Define how IP Address will be managed
+                      label: IP Address Management
+                      schema:
+                        type: dict
+                        required: true
+                        attrs:
+                          - variable: type
+                            description: Specify type for IPAM
+                            label: IPAM Type
+                            schema:
+                              type: string
+                              required: true
+                              enum:
+                                - value: dhcp
+                                  description: Use DHCP
+                                - value: static
+                                  description: Use Static IP
+                          - variable: staticIPConfigurations
+                            label: Static IP Addresses
+                            schema:
+                              type: list
+                              show_if: [["type", "=", "static"]]
+                              items:
+                                - variable: staticIP
+                                  label: Static IP
                                   schema:
-                                    type: boolean
-                                    default: true
-                                - variable: redirectPort
-                                  label: "Redirect to Port"
+                                    type: ipaddr
+                                    cidr: true
+                          - variable: staticRoutes
+                            label: Static Routes
+                            schema:
+                              type: list
+                              show_if: [["type", "=", "static"]]
+                              items:
+                                - variable: staticRouteConfiguration
+                                  label: Static Route Configuration
                                   schema:
-                                    type: int
-                                - variable: redirectTo
-                                  label: "Redirect to Entrypoint"
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: destination
+                                        label: Destination
+                                        schema:
+                                          type: ipaddr
+                                          cidr: true
+                                          required: true
+                                      - variable: gateway
+                                        label: Gateway
+                                        schema:
+                                          type: ipaddr
+                                          cidr: false
+                                          required: true
+        - variable: serviceList
+          label: Add Manual Custom Services
+          group: Networking and Services
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: serviceListEntry
+                label: Custom Service
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable the service
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: type
+                      label: Service Type
+                      description: "ClusterIP's are only internally available and Loadbalancer exposes the service using the system loadbalancer"
+                      schema:
+                        type: string
+                        default: LoadBalancer
+                        enum:
+                          - value: LoadBalancer
+                            description: LoadBalancer (Expose Ports)
+                          - value: ClusterIP
+                            description: ClusterIP (Do Not Expose Ports)
+                          - value: Simple
+                            description: Deprecated CHANGE THIS
+                    - variable: loadBalancerIP
+                      label: LoadBalancer IP
+                      description: "MetalLB Only: Selects the Loadbalancer IP to expose on. Required when using PortalButton with MetalLB"
+                      schema:
+                        show_if: [["type", "=", "LoadBalancer"]]
+                        type: string
+                        default: ""
+                    - variable: advancedsvcset
+                      label: Show Advanced Service Settings
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: externalIPs
+                            label: "External IP's"
+                            description: "External IP's"
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: externalIP
+                                  label: External IP
                                   schema:
                                     type: string
-                          - variable: forwardedHeaders
-                            label: Accept Forwarded Headers
+                          - variable: ipFamilyPolicy
+                            label: IP Family Policy
+                            description: Specify the IP Policy
+                            schema:
+                              type: string
+                              default: SingleStack
+                              enum:
+                                - value: SingleStack
+                                  description: SingleStack
+                                - value: PreferDualStack
+                                  description: PreferDualStack
+                                - value: RequireDualStack
+                                  description: RequireDualStack
+                          - variable: ipFamilies
+                            label: IP Families
+                            description: (Advanced) The IP Families that should be used
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: ipFamily
+                                  label: IP Family
+                                  schema:
+                                    type: string
+                    - variable: portsList
+                      label: Additional Service Ports
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: portsListEntry
+                            label: Custom ports
                             schema:
                               additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: enabled
-                                  label: Enable
-                                  schema:
-                                    type: boolean
-                                    default: false
-                                    show_subquestions_if: true
-                                    subquestions:
-                                      - variable: trustedIPs
-                                        label: Trusted IPs
-                                        description: Trust Forwarded Headers from specific IPs.
-                                        schema:
-                                          type: list
-                                          default: []
-                                          items:
-                                            - variable: trustedIPsEntry
-                                              label: ""
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: ""
-                                      - variable: insecureMode
-                                        label: Insecure Mode
-                                        description: Always Trust Forwarded Headers
-                                        schema:
-                                          type: boolean
-                                          default: false
-                          - variable: proxyProtocol
-                            label: Accept Proxy Protocol connections
-                            description: If Proxy Protocol header parsing is enabled for the entry point, this entry point can accept connections with or without Proxy Protocol headers.
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: enabled
-                                  label: Enable
-                                  schema:
-                                    type: boolean
-                                    default: false
-                                    show_subquestions_if: true
-                                    subquestions:
-                                      - variable: trustedIPs
-                                        label: Trusted IPs
-                                        description: Only IPs in trustedIPs will lead to remote client address replacement
-                                        schema:
-                                          type: list
-                                          default: []
-                                          items:
-                                            - variable: trustedIPsEntry
-                                              label: ""
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: ""
-                                      - variable: insecureMode
-                                        label: Insecure Mode
-                                        description: Trust every incoming connection
-                                        schema:
-                                          type: boolean
-                                          default: false
-                          - variable: tls
-                            label: "websecure Entrypoints Configuration"
-                            schema:
-                              type: dict
-                              hidden: true
-                              attrs:
-                                - variable: enabled
-                                  label: "Enabled"
+                                  label: Enable the Port
                                   schema:
                                     type: boolean
                                     default: true
                                     hidden: true
+                                - variable: name
+                                  label: Port Name
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: protocol
+                                  label: Port Type
+                                  schema:
+                                    type: string
+                                    default: tcp
+                                    enum:
+                                      - value: http
+                                        description: http
+                                      - value: https
+                                        description: https
+                                      - value: tcp
+                                        description: tcp
+                                      - value: udp
+                                        description: UDP
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: This port exposes the container port on the service
+                                  schema:
+                                    type: int
+                                    required: true
+                                - variable: port
+                                  label: Container Port
+                                  schema:
+                                    type: int
+                                    required: true
   - variable: ingress
     label: ""
     group: Ingress
