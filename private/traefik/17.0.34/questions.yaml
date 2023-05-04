@@ -1106,6 +1106,12 @@ questions:
                             schema:
                               type: boolean
                               default: false
+                          - variable: fusion
+                            label: Enable fusion port
+                            schema:
+                              type: boolean
+                              default: false
+                              hidden: true
                           - variable: advanced
                             label: Show Advanced Settings
                             schema:
