@@ -433,8 +433,8 @@ questions:
                                   description: "https"
                                 - value: tcp
                                   description: "tcp"
-                                - value: "UDP"
-                                  description: "UDP"
+                                - value: "udp"
+                                  description: "udp"
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
@@ -483,7 +483,7 @@ questions:
                                 - value: tcp
                                   description: "tcp"
                                 - value: "udp"
-                                  description: "UDP"
+                                  description: "udp"
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
@@ -709,7 +709,7 @@ questions:
                                       - value: tcp
                                         description: tcp
                                       - value: udp
-                                        description: UDP
+                                        description: udp
                                 - variable: targetPort
                                   label: Target Port
                                   description: This port exposes the container port on the service
@@ -1574,10 +1574,10 @@ questions:
                                               enum:
                                                 - value: tcp
                                                   description: tcp
-                                                - value: UDP
-                                                  description: UDP
-                                                - value: SCTP
-                                                  description: SCTP
+                                                - value: udp
+                                                  description: udp
+                                                - value: sctp
+                                                  description: sctp
                   - variable: ingress
                     label: Ingress
                     schema:
@@ -1743,10 +1743,10 @@ questions:
                                               enum:
                                                 - value: tcp
                                                   description: tcp
-                                                - value: UDP
-                                                  description: UDP
-                                                - value: SCTP
-                                                  description: SCTP
+                                                - value: udp
+                                                  description: udp
+                                                - value: sctp
+                                                  description: sctp
   - variable: addons
     group: Addons
     label: ""
