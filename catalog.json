@@ -29,6 +29,31 @@
                   "latest_app_version": "0.20.2297",
                   "latest_human_version": "0.20.2297_8.0.3",
                   "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png"
-            }
+            },
+            "cert-manager": {
+                  "app_readme": "<p>Certificate management for Kubernetes</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/enterprise/cert-manager\">https://truecharts.org/charts/enterprise/cert-manager</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+                  "categories": [
+                        "core"
+                  ],
+                  "description": "Certificate management for Kubernetes",
+                  "healthy": true,
+                  "healthy_error": null,
+                  "location": "/home/runner/work/catalog/catalog/enterprise/cert-manager",
+                  "latest_version": "1.0.31",
+                  "latest_app_version": "latest",
+                  "latest_human_version": "latest_1.0.31",
+                  "last_update": "2023-05-08 07:45:24",
+                  "name": "cert-manager",
+                  "recommended": false,
+                  "title": "Cert-manager",
+                  "maintainers": [
+                        {
+                              "email": "info@truecharts.org",
+                              "name": "TrueCharts",
+                              "url": "https://truecharts.org"
+                        }
+                  ],
+                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png"
+            },
       }
 }
