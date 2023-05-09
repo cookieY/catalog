@@ -171,6 +171,114 @@ questions:
                                               label: Param
                                               schema:
                                                 type: string
+                                - variable: probes
+                                  label: "Healthcheck Probes"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: liveness
+                                        label: "Liveness"
+                                        description: "Liveness Probe"
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: "Enable Probe"
+                                              description: "Enables the probe"
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                                show_subquestions_if: true
+                                                subquestions:
+                                                  - variable: type
+                                                    label: "Probe Type"
+                                                    description: "Probe Type"
+                                                    schema:
+                                                      type: string
+                                                      default: "tcp"
+                                                      enum:
+                                                        - value: "tcp"
+                                                          description: "tcp"
+                                                        - value: "http"
+                                                          description: "http"
+                                                        - value: "https"
+                                                          description: "https"
+                                                  - variable: path
+                                                    label: "Probe Path"
+                                                    description: "Probe Path"
+                                                    schema:
+                                                      type: string
+                                                      default: "/"
+                                      - variable: readiness
+                                        label: "Readiness"
+                                        description: "Readiness Probe"
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: "Enable Probe"
+                                              description: "Enables the probe"
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                                show_subquestions_if: true
+                                                subquestions:
+                                                  - variable: type
+                                                    label: "Probe Type"
+                                                    description: "Probe Type"
+                                                    schema:
+                                                      type: string
+                                                      default: "tcp"
+                                                      enum:
+                                                        - value: "tcp"
+                                                          description: "tcp"
+                                                        - value: "http"
+                                                          description: "http"
+                                                        - value: "https"
+                                                          description: "https"
+                                                  - variable: path
+                                                    label: "Probe Path"
+                                                    description: "Probe Path"
+                                                    schema:
+                                                      type: string
+                                                      default: "/"
+                                      - variable: startup
+                                        label: "Startup"
+                                        description: "Startup Probe"
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: "Enable Probe"
+                                              description: "Enables the probe"
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                                show_subquestions_if: true
+                                                subquestions:
+                                                  - variable: type
+                                                    label: "Probe Type"
+                                                    description: "Probe Type"
+                                                    schema:
+                                                      type: string
+                                                      default: "tcp"
+                                                      enum:
+                                                        - value: "tcp"
+                                                          description: "tcp"
+                                                        - value: "http"
+                                                          description: "http"
+                                                        - value: "https"
+                                                          description: "https"
+                                                  - variable: path
+                                                    label: "Probe Path"
+                                                    description: "Probe Path"
+                                                    schema:
+                                                      type: string
+                                                      default: "/"
   - variable: TZ
     label: Timezone
     group: "General Settings"
@@ -186,185 +294,83 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: hostNetwork
-          label: "Host Networking"
+        - variable: expertPodOpts
+          label: "Expert - Pod Options"
           schema:
             type: boolean
             default: false
-        - variable: dnsPolicy
-          label: "DNS Policy"
-          group: Networking and Services
-          schema:
-            type: string
-            default: "ClusterFirst"
-            enum:
-              - value: "Default"
-                description: "Use Default DNS Policy where Pod will inherit the name resolution configuration from the node."
-              - value: "ClusterFirst"
-                description: "Kubernetes internal DNS will be prioritised and resolved first."
-              - value: "ClusterFirstWithHostNet"
-                description: "For Pods running with hostNetwork and wanting to prioritise internal kubernetes DNS should make use of this policy."
-              - value: "None"
-                description: "Ignore DNS settings from the Kubernetes cluster"        
-        - variable: dnsConfig
-          label: "DNS Configuration"
-          schema:
-            type: dict
-            additional_attrs: true
-            attrs:
-              - variable: options
-                label: "Options"
+            show_subquestions_if: true
+            subquestions:
+              - variable: hostNetwork
+                label: "Host Networking"
                 schema:
-                  type: list
-                  default: [{"name": "ndots", "value": "2"}]
-                  items:
-                    - variable: optionsEntry
-                      label: "Option Entry"
+                  type: boolean
+                  default: false
+              - variable: dnsPolicy
+                label: "DNS Policy"
+                group: Networking and Services
+                schema:
+                  type: string
+                  default: "ClusterFirst"
+                  enum:
+                    - value: "Default"
+                      description: "Use Default DNS Policy where Pod will inherit the name resolution configuration from the node."
+                    - value: "ClusterFirst"
+                      description: "Kubernetes internal DNS will be prioritised and resolved first."
+                    - value: "ClusterFirstWithHostNet"
+                      description: "For Pods running with hostNetwork and wanting to prioritise internal kubernetes DNS should make use of this policy."
+                    - value: "None"
+                      description: "Ignore DNS settings from the Kubernetes cluster"   
+              - variable: dnsConfig
+                label: "DNS Configuration"
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: options
+                      label: "Options"
                       schema:
-                        type: dict
-                        additional_attrs: true
-                        attrs:
-                          - variable: name
-                            label: "Name"
+                        type: list
+                        default: [{"name": "ndots", "value": "2"}]
+                        items:
+                          - variable: optionsEntry
+                            label: "Option Entry"
+                            schema:
+                              type: dict
+                              additional_attrs: true
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: nameservers
+                      label: "Nameservers"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: nsEntry
+                            label: "Nameserver Entry"
                             schema:
                               type: string
                               required: true
-                          - variable: value
-                            label: "Value"
+                    - variable: searches
+                      label: "Searches"
+                      schema:
+                        type: list
+                        default: 
+                          - "svc.cluster.local"
+                        items:
+                          - variable: searchEntry
+                            label: "Search Entry"
                             schema:
                               type: string
-              - variable: nameservers
-                label: "Nameservers"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: nsEntry
-                      label: "Nameserver Entry"
-                      schema:
-                        type: string
-                        required: true
-              - variable: searches
-                label: "Searches"
-                schema:
-                  type: list
-                  default: 
-                    - "svc.cluster.local"
-                  items:
-                    - variable: searchEntry
-                      label: "Search Entry"
-                      schema:
-                        type: string
-                        required: true
-  - variable: probes
-    group: "App Configuration"
-    label: "Healthcheck Probes"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: liveness
-          label: "Liveness"
-          description: "Liveness Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
-                schema:
-                  type: boolean
-                  default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "tcp"
-                        enum:
-                          - value: "tcp"
-                            description: "tcp"
-                          - value: "http"
-                            description: "http"
-                          - value: "https"
-                            description: "https"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
-        - variable: readiness
-          label: "Readiness"
-          description: "Readiness Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
-                schema:
-                  type: boolean
-                  default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "tcp"
-                        enum:
-                          - value: "tcp"
-                            description: "tcp"
-                          - value: "http"
-                            description: "http"
-                          - value: "https"
-                            description: "https"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
-        - variable: startup
-          label: "Startup"
-          description: "Startup Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
-                schema:
-                  type: boolean
-                  default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "tcp"
-                        enum:
-                          - value: "tcp"
-                            description: "tcp"
-                          - value: "http"
-                            description: "http"
-                          - value: "https"
-                            description: "https"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
+                              required: true
   - variable: service
     group: Networking and Services
     label: Configure Service(s)
@@ -419,8 +425,8 @@ questions:
                             label: "Enable the port"
                             schema:
                               type: boolean
-                              default: true
                               hidden: true
+                              default: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
@@ -703,13 +709,13 @@ questions:
                                     default: tcp
                                     enum:
                                       - value: http
-                                        description: http
+                                        description: HTTP
                                       - value: https
-                                        description: https
+                                        description: HTTPS
                                       - value: tcp
-                                        description: tcp
+                                        description: TCP
                                       - value: udp
-                                        description: udp
+                                        description: UDP
                                 - variable: targetPort
                                   label: Target Port
                                   description: This port exposes the container port on the service
@@ -721,7 +727,6 @@ questions:
                                   schema:
                                     type: int
                                     required: true
-
   - variable: persistenceList
     label: Additional App Storage
     group: Storage and Persistence
@@ -941,8 +946,7 @@ questions:
                       description: Add previously created Traefik Middlewares to this Ingress
                       schema:
                         type: list
-                        default:
-                          - chain-basic
+                        default: []
                         items:
                           - variable: name
                             label: Name
@@ -1480,7 +1484,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: tcp
+                                                                default: TCP
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1526,7 +1530,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: tcp
+                                                                default: TCP
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1570,14 +1574,14 @@ questions:
                                             label: Protocol
                                             schema:
                                               type: string
-                                              default: tcp
+                                              default: TCP
                                               enum:
-                                                - value: tcp
-                                                  description: tcp
-                                                - value: udp
-                                                  description: udp
-                                                - value: sctp
-                                                  description: sctp
+                                                - value: TCP
+                                                  description: TCP
+                                                - value: UDP
+                                                  description: UDP
+                                                - value: SCTP
+                                                  description: SCTP
                   - variable: ingress
                     label: Ingress
                     schema:
@@ -1649,7 +1653,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: tcp
+                                                                default: TCP
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1695,7 +1699,7 @@ questions:
                                                               label: Operator
                                                               schema:
                                                                 type: string
-                                                                default: tcp
+                                                                default: TCP
                                                                 enum:
                                                                   - value: In
                                                                     description: In
@@ -1739,14 +1743,14 @@ questions:
                                             label: Protocol
                                             schema:
                                               type: string
-                                              default: tcp
+                                              default: TCP
                                               enum:
-                                                - value: tcp
-                                                  description: tcp
-                                                - value: udp
-                                                  description: udp
-                                                - value: sctp
-                                                  description: sctp
+                                                - value: TCP
+                                                  description: TCP
+                                                - value: UDP
+                                                  description: UDP
+                                                - value: SCTP
+                                                  description: SCTP
   - variable: addons
     group: Addons
     label: ""
@@ -1961,8 +1965,8 @@ questions:
                         type: string
                         default: ""
                     - variable: outbound_http_proxy_listen
-                      label: Outbound http Proxy Listen
-                      description: The address on which to listen for http proxying into the tailscale net.
+                      label: Outbound HTTP Proxy Listen
+                      description: The address on which to listen for HTTP proxying into the tailscale net.
                       schema:
                         type: string
                         default: ""
