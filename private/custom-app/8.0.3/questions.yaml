@@ -950,7 +950,8 @@ questions:
                       description: Add previously created Traefik Middlewares to this Ingress
                       schema:
                         type: list
-                        default: []
+                        default: 
+                          - chain-basic
                         items:
                           - variable: name
                             label: Name
