@@ -69,7 +69,19 @@ questions:
                 description: "Always"
               - value: "Never"
                 description: "Never"
-
+  - variable: global
+    group: General Settings
+    label: "Global Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: stopAll
+          label: Stop All
+          description: "Stops All Running pods and hibernates cnpg"
+          schema:
+            type: boolean
+            default: false
   - variable: workload
     group: "Workload Settings"
     label: ""
@@ -119,9 +131,6 @@ questions:
                               additional_attrs: true
                               type: dict
                               attrs:
-
-
-
                                 - variable: envList
                                   label: Extra Environment Variables
                                   description: "Please be aware that some variables are set in the background, adding duplicates here might cause issues or prevent the app from starting..."
@@ -279,6 +288,65 @@ questions:
                                                     schema:
                                                       type: string
                                                       default: "/"
+  - variable: portal
+    group: "General Settings"
+    label: "Portal Configuration"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs:
+        - variable: open
+          label: "Open"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: enabled
+                label: "Enable WebUI Portal"
+                description: "Enable WebUI Portal"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: overrides
+                label: "Override Portal Configuration"
+                description: "Override Portal Configuration"
+                schema:
+                  type: boolean
+                  default: false
+                  show_if: [["enabled", "=", true]]
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: override
+                      label: "Override Portal Configuration"
+                      description: "Override Portal Configuration"
+                      schema:
+                        type: dict
+                        additional_attrs: true
+                        attrs:
+                          - variable: protocol
+                            label: "Protocol"
+                            description: "Portal Protocol Override"
+                            schema:
+                              type: string
+                              enum:
+                                - value: ""
+                                  description: ""
+                                - value: "http"
+                                  description: "HTTP"
+                                - value: "https"
+                                  description: "HTTPS"
+                          - variable: host
+                            label: "Host"
+                            description: "Portal Host Override"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: port
+                            label: "Port"
+                            description: "Portal Port Override"
+                            schema:
+                              type: string
+                              default: ""
   - variable: TZ
     label: Timezone
     group: "General Settings"
@@ -331,7 +399,7 @@ questions:
                       label: "Options"
                       schema:
                         type: list
-                        default: [{"name": "ndots", "value": "2"}]
+                        default: [{"name": "ndots", "value": "1"}]
                         items:
                           - variable: optionsEntry
                             label: "Option Entry"
@@ -352,7 +420,8 @@ questions:
                       label: "Nameservers"
                       schema:
                         type: list
-                        default: []
+                        default: 
+                          - "svc.cluster.local"
                         items:
                           - variable: nsEntry
                             label: "Nameserver Entry"
@@ -363,8 +432,7 @@ questions:
                       label: "Searches"
                       schema:
                         type: list
-                        default: 
-                          - "svc.cluster.local"
+                        default: []
                         items:
                           - variable: searchEntry
                             label: "Search Entry"
@@ -510,13 +578,6 @@ questions:
       default: false
       show_subquestions_if: true
       subquestions:
-        - variable: hostNetwork
-          group: Networking and Services
-          label: Host-Networking (Complicated)
-          schema:
-            hidden: true
-            type: boolean
-            default: false
         - variable: scaleExternalInterface
           description: Add External Interfaces
           label: Add external Interfaces
@@ -884,63 +945,6 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: tls
-                      label: TLS-Settings
-                      schema:
-                        type: list
-                        show_if: [["certificateIssuer", "=", ""]]
-                        default: []
-                        items:
-                          - variable: tlsEntry
-                            label: Host
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: hosts
-                                  label: Certificate Hosts
-                                  schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: host
-                                        label: Host
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-
-                                - variable: certificateIssuer
-                                  label: Use Cert-Manager clusterIssuer
-                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
-                                  schema:
-                                    type: string
-                                    default: ""
-                                - variable: scaleCert
-                                  label: Use TrueNAS SCALE Certificate (Deprecated)
-                                  schema:
-                                    show_if: [["certificateIssuer", "=", ""]]
-                                    type: int
-                                    $ref:
-                                      - "definitions/certificate"
-                                - variable: secretName
-                                  label: Use Custom Secret (Advanced)
-                                  schema:
-                                    show_if: [["certificateIssuer", "=", ""]]
-                                    type: string
-                                    default: ""
-                    - variable: entrypoint
-                      label: (Advanced) Traefik Entrypoint
-                      description: Entrypoint used by Traefik when using Traefik as Ingress Provider
-                      schema:
-                        type: string
-                        default: websecure
-                        required: true
-                    - variable: ingressClassName
-                      label: (Advanced/Optional) IngressClass Name
-                      schema:
-                        type: string
-                        default: ""
                     - variable: middlewares
                       label: Traefik Middlewares
                       description: Add previously created Traefik Middlewares to this Ingress
@@ -954,6 +958,70 @@ questions:
                               type: string
                               default: ""
                               required: true
+                    - variable: advanced
+                      label: Show Advanced Settings
+                      description: Advanced settings are not covered by TrueCharts Support
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: entrypoint
+                            label: (Advanced) Traefik Entrypoint
+                            description: Entrypoint used by Traefik when using Traefik as Ingress Provider
+                            schema:
+                              type: string
+                              default: websecure
+                              required: true
+                          - variable: ingressClassName
+                            label: (Advanced/Optional) IngressClass Name
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: tls
+                            label: TLS-Settings
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: tlsEntry
+                                  label: Host
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: hosts
+                                        label: Certificate Hosts
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: host
+                                              label: Host
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                required: true
+
+                                      - variable: certificateIssuer
+                                        label: Use Cert-Manager clusterIssuer
+                                        description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: scaleCert
+                                        label: Use TrueNAS SCALE Certificate (Deprecated)
+                                        schema:
+                                          show_if: [["certificateIssuer", "=", ""]]
+                                          type: int
+                                          $ref:
+                                            - "definitions/certificate"
+                                      - variable: secretName
+                                        label: Use Custom Secret (Advanced)
+                                        schema:
+                                          show_if: [["certificateIssuer", "=", ""]]
+                                          type: string
+                                          default: ""
   - variable: ingressList
     label: Add Manual Custom Ingresses
     group: Ingress
