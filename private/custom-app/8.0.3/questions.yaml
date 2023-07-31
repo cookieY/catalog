@@ -131,6 +131,9 @@ questions:
                               additional_attrs: true
                               type: dict
                               attrs:
+
+
+
                                 - variable: envList
                                   label: Extra Environment Variables
                                   description: "Please be aware that some variables are set in the background, adding duplicates here might cause issues or prevent the app from starting..."
@@ -420,8 +423,7 @@ questions:
                       label: "Nameservers"
                       schema:
                         type: list
-                        default: 
-                          - "svc.cluster.local"
+                        default: []
                         items:
                           - variable: nsEntry
                             label: "Nameserver Entry"
@@ -589,6 +591,7 @@ questions:
                 description: Interface Configuration
                 label: Interface Configuration
                 schema:
+                  additional_attrs: true
                   type: dict
                   $ref:
                     - "normalize/interfaceConfiguration"
@@ -605,6 +608,7 @@ questions:
                       description: Define how IP Address will be managed
                       label: IP Address Management
                       schema:
+                        additional_attrs: true
                         type: dict
                         required: true
                         attrs:
@@ -834,13 +838,44 @@ questions:
                   show_if: [["type", "=", "nfs"]]
                   type: string
                   default: ""
-              - variable: setPermissions
-                label: Automatic Permissions
-                description: Automatically set permissions on install
+              - variable: autoPermissions
+                label: Automatic Permissions Configuration
+                description: Automatically set permissions
                 schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: boolean
-                  default: false
+                  show_if: [["type", "!=", "pvc"]]
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: enabled
+                      label: enabled
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: chown
+                            label: Run CHOWN
+                            description: |
+                              It will run CHOWN on the path with the given fsGroup
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: chmod
+                            label: Run CHMOD
+                            description: |
+                              It will run CHMOD on the path with the given value</br>
+                              Format should be 3 digits, e.g. 770
+                            schema:
+                              type: string
+                              valid_chars: '[0-9]{3}'
+                              default: ""
+                          - variable: recursive
+                            label: Recursive
+                            description: |
+                              It will run CHOWN and CHMOD recursively
+                            schema:
+                              type: boolean
+                              default: false
               - variable: readOnly
                 label: Read Only
                 schema:
@@ -965,64 +1000,65 @@ questions:
                       schema:
                         type: boolean
                         default: false
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: entrypoint
-                            label: (Advanced) Traefik Entrypoint
-                            description: Entrypoint used by Traefik when using Traefik as Ingress Provider
+                    - variable: entrypoint
+                      label: (Advanced) Traefik Entrypoint
+                      description: Entrypoint used by Traefik when using Traefik as Ingress Provider
+                      schema:
+                        type: string
+                        default: websecure
+                        show_if: [["advanced", "=", true]]
+                        required: true
+                    - variable: ingressClassName
+                      label: (Advanced/Optional) IngressClass Name
+                      schema:
+                        type: string
+                        show_if: [["advanced", "=", true]]
+                        default: ""
+                    - variable: tls
+                      label: TLS-Settings
+                      schema:
+                        type: list
+                        show_if: [["advanced", "=", true]]
+                        default: []
+                        items:
+                          - variable: tlsEntry
+                            label: Host
                             schema:
-                              type: string
-                              default: websecure
-                              required: true
-                          - variable: ingressClassName
-                            label: (Advanced/Optional) IngressClass Name
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: tls
-                            label: TLS-Settings
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: tlsEntry
-                                  label: Host
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: hosts
+                                  label: Certificate Hosts
                                   schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: hosts
-                                        label: Certificate Hosts
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: host
+                                        label: Host
                                         schema:
-                                          type: list
-                                          default: []
-                                          items:
-                                            - variable: host
-                                              label: Host
-                                              schema:
-                                                type: string
-                                                default: ""
-                                                required: true
+                                          type: string
+                                          default: ""
+                                          required: true
 
-                                      - variable: certificateIssuer
-                                        label: Use Cert-Manager clusterIssuer
-                                        description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: scaleCert
-                                        label: Use TrueNAS SCALE Certificate (Deprecated)
-                                        schema:
-                                          show_if: [["certificateIssuer", "=", ""]]
-                                          type: int
-                                          $ref:
-                                            - "definitions/certificate"
-                                      - variable: secretName
-                                        label: Use Custom Secret (Advanced)
-                                        schema:
-                                          show_if: [["certificateIssuer", "=", ""]]
-                                          type: string
-                                          default: ""
+                                - variable: certificateIssuer
+                                  label: Use Cert-Manager clusterIssuer
+                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: scaleCert
+                                  label: Use TrueNAS SCALE Certificate (Deprecated)
+                                  schema:
+                                    show_if: [["certificateIssuer", "=", ""]]
+                                    type: int
+                                    $ref:
+                                      - "definitions/certificate"
+                                - variable: secretName
+                                  label: Use Custom Secret (Advanced)
+                                  schema:
+                                    show_if: [["certificateIssuer", "=", ""]]
+                                    type: string
+                                    default: ""
   - variable: ingressList
     label: Add Manual Custom Ingresses
     group: Ingress
@@ -1287,14 +1323,14 @@ questions:
             attrs:
               - variable: cpu
                 label: CPU
-                description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
+                description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/manual/SCALE/validation"
                 schema:
                   type: string
                   default: 4000m
                   valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
               - variable: memory
                 label: RAM
-                description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
+                description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/manual/SCALE/validation"
                 schema:
                   type: string
                   default: 8Gi
@@ -1308,7 +1344,7 @@ questions:
             attrs:
               - variable: cpu
                 label: CPU
-                description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
+                description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/manual/SCALE/validation"
                 schema:
                   type: string
                   default: 10m
@@ -1316,7 +1352,7 @@ questions:
                   valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
               - variable: memory
                 label: "RAM"
-                description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
+                description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/manual/SCALE/validation"
                 schema:
                   type: string
                   default: 50Mi
@@ -1380,6 +1416,7 @@ questions:
               - variable: gpu
                 label: Select GPU
                 schema:
+                  additional_attrs: true
                   type: dict
                   $ref:
                     - "definitions/gpuConfiguration"
@@ -1967,6 +2004,7 @@ questions:
               - variable: openvpn
                 label: OpenVPN Settings
                 schema:
+                  additional_attrs: true
                   type: dict
                   show_if: [["type", "=", "openvpn"]]
                   attrs:
@@ -1987,6 +2025,7 @@ questions:
               - variable: tailscale
                 label: Tailscale Settings
                 schema:
+                  additional_attrs: true
                   type: dict
                   show_if: [["type", "=", "tailscale"]]
                   attrs:
@@ -2113,6 +2152,7 @@ questions:
                             schema:
                               type: string
                               required: true
+                              max_length: 10240
   - variable: docs
     group: Documentation
     label: Please read the documentation at https://truecharts.org
