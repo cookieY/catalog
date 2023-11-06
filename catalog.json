@@ -7,6 +7,7 @@
                   "categories": [
                         "network"
                   ],
+                  "tags": [],
                   "app_readme": "<p>Traefik is a flexible reverse proxy and Ingress Provider.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/private/traefik\">https://truecharts.org/charts/private/traefik</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
                   "location": "/home/runner/work/catalog/catalog/private/traefik",
                   "healthy": true,
@@ -42,6 +43,7 @@
                   "last_update": "2023-05-08 07:45:24",
                   "recommended": false,
                   "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
+                  "tags": [],
                   "maintainers": [
                         {
                               "email": "info@truecharts.org",
@@ -67,6 +69,7 @@
                   "name": "cert-manager",
                   "recommended": false,
                   "title": "Cert-manager",
+                  "tags": [],
                   "maintainers": [
                         {
                               "email": "info@truecharts.org",
