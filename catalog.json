@@ -16,7 +16,14 @@
                   "latest_human_version": "2.10.4_17.0.38",
                   "last_update": "2023-05-08 07:45:24",
                   "recommended": false,
-                  "icon_url": "https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Traefik_B.png"
+                  "icon_url": "https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Traefik_B.png",
+                  "maintainers": [
+                        {
+                              "email": "info@truecharts.org",
+                              "name": "TrueCharts",
+                              "url": "https://truecharts.org"
+                        }
+                  ]
             },
             "custom-app": {
                   "name": "custom-app",
@@ -32,7 +39,14 @@
                   "latest_human_version": "0.20.2297_8.0.3",
                   "last_update": "2023-05-08 07:45:24",
                   "recommended": false,
-                  "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png"
+                  "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
+                  "maintainers": [
+                        {
+                              "email": "info@truecharts.org",
+                              "name": "TrueCharts",
+                              "url": "https://truecharts.org"
+                        }
+                  ]
             },
             "cert-manager": {
                   "app_readme": "<p>Certificate management for Kubernetes</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/enterprise/cert-manager\">https://truecharts.org/charts/enterprise/cert-manager</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
