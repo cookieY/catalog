@@ -15,6 +15,7 @@
                   "latest_app_version": "2.10.4",
                   "latest_human_version": "2.10.4_17.0.38",
                   "last_update": "2023-05-08 07:45:24",
+                  "recommended": false,
                   "icon_url": "https://ghproxy.com/raw.githubusercontent.com/xushier/HD-Icons/main/border-radius/Traefik_B.png"
             },
             "custom-app": {
@@ -30,6 +31,7 @@
                   "latest_app_version": "0.20.2297",
                   "latest_human_version": "0.20.2297_8.0.3",
                   "last_update": "2023-05-08 07:45:24",
+                  "recommended": false,
                   "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png"
             },
             "cert-manager": {
