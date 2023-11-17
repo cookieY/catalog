@@ -1,6 +1,6 @@
 image:
   repository: traefik
-  tag: v2.10.3@sha256:79c24d0686fa0679cde49f275e694afb7ef6d182b9fe21a219463e2a6bfe4ece
+  tag: v2.10.5@sha256:9701f2c228e65fbaced54478b24f3953502192d396823ebdb2aa9b9e37b0e647
   pullPolicy: IfNotPresent
 
 workload:
