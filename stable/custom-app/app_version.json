@@ -3,7 +3,7 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/home/runner/work/catalog/catalog/private/custom-app/10.0.4",
+        "location": "/home/runner/work/catalog/catalog/stable/custom-app/10.0.4",
         "last_update": "2023-12-21 18:32:10",
         "required_features": [
             "normalize/interfaceConfiguration",
@@ -56,7 +56,7 @@
                 "truecharts.org/category": "custom",
                 "truecharts.org/max_helm_version": "3.13",
                 "truecharts.org/min_helm_version": "3.12",
-                "truecharts.org/train": "private"
+                "truecharts.org/train": "stable"
             },
             "type": "application"
         },
