@@ -7,7 +7,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-opencors-headers
+  name: opencors-headers
   namespace: {{ $namespace }}
 spec:
   headers:
@@ -37,7 +37,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-closedcors-headers
+  name: closedcors-headers
   namespace: {{ $namespace }}
 spec:
   headers:

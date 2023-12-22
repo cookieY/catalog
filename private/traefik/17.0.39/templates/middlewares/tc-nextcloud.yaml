@@ -7,7 +7,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-nextcloud-redirectregex-dav
+  name: nextcloud-redirectregex-dav
   namespace: {{ $namespace }}
 spec:
   redirectRegex:
@@ -17,9 +17,9 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-nextcloud-chain
+  name: nextcloud-chain
   namespace: {{ $namespace }}
 spec:
   chain:
     middlewares:
-    - name: tc-nextcloud-redirectregex-dav
+    - name: nextcloud-redirectregex-dav

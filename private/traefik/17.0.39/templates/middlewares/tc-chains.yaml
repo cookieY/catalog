@@ -7,23 +7,23 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-opencors-chain
+  name: opencors-chain
   namespace: {{ $namespace }}
 spec:
   chain:
     middlewares:
     - name: basic-ratelimit
-    - name: tc-opencors-headers
+    - name: opencors-headers
     - name: compress
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-closedcors-chain
+  name: closedcors-chain
   namespace: {{ $namespace }}
 spec:
   chain:
     middlewares:
     - name: basic-ratelimit
-    - name: tc-closedcors-headers
+    - name: closedcors-headers
     - name: compress
