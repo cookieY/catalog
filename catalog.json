@@ -30,32 +30,37 @@
                   ]
             },
             "custom-app": {
-                  "name": "custom-app",
-                  "categories": [
-                        "custom"
-                  ],
                   "app_readme": "<p>Advanced tool to create your own TrueCharts-based App</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/custom-app\">https://truecharts.org/charts/stable/custom-app</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-                  "location": "/home/runner/work/catalog/catalog/stable/custom-app",
+                  "categories": [
+                      "custom"
+                  ],
+                  "description": "Advanced tool to create your own TrueCharts-based App",
                   "healthy": true,
                   "healthy_error": null,
-                  "latest_version": "8.0.3",
-                  "latest_app_version": "0.20.2297",
-                  "latest_human_version": "0.20.2297_8.0.3",
-                  "home": "https://github.com/cookieY/catalog",
-                  "last_update": "2023-05-08 07:45:24",
+                  "home": "https://truecharts.org/charts/stable/custom-app",
+                  "location": "/home/runner/work/catalog/catalog/stable/custom-app",
+                  "latest_version": "10.0.4",
+                  "latest_app_version": "0.21.1155",
+                  "latest_human_version": "0.21.1155_10.0.4",
+                  "last_update": "2023-12-21 18:32:10",
+                  "name": "custom-app",
                   "recommended": false,
-                  "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
+                  "title": "Custom-app",
+                  "maintainers": [
+                      {
+                          "name": "TrueCharts",
+                          "email": "info@truecharts.org",
+                          "url": "https://truecharts.org"
+                      }
+                  ],
                   "tags": [],
                   "screenshots": [],
-                  "sources": ["https://github.com/cookieY/catalog"],
-                  "maintainers": [
-                        {
-                              "email": "info@truecharts.org",
-                              "name": "TrueCharts",
-                              "url": "https://truecharts.org"
-                        }
-                  ]
-            },
+                  "sources": [
+                      "https://github.com/truecharts/charts/tree/master/charts/stable/custom-app",
+                      "https://ghcr.io/linuxserver/jackett"
+                  ],
+                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png"
+              },
             "cert-manager": {
                   "app_readme": "<p>Certificate management for Kubernetes</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/enterprise/cert-manager\">https://truecharts.org/charts/enterprise/cert-manager</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
                   "categories": [
