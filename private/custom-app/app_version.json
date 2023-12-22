@@ -22,7 +22,7 @@
             "appVersion": "0.21.1155",
             "description": "Advanced tool to create your own TrueCharts-based App",
             "home": "https://truecharts.org/charts/stable/custom-app",
-            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png",
+            "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
             "deprecated": false,
             "sources": [
                 "https://github.com/truecharts/charts/tree/master/charts/stable/custom-app",
@@ -4759,7 +4759,7 @@
             "appVersion": "0.21.1155",
             "description": "Advanced tool to create your own TrueCharts-based App",
             "home": "https://truecharts.org/charts/stable/custom-app",
-            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png",
+            "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
             "deprecated": false,
             "sources": [
                 "https://github.com/truecharts/charts/tree/master/charts/stable/custom-app",
@@ -9486,7 +9486,7 @@
             "appVersion": "0.21.1155",
             "description": "Advanced tool to create your own TrueCharts-based App",
             "home": "https://truecharts.org/charts/stable/custom-app",
-            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png",
+            "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
             "deprecated": false,
             "sources": [
                 "https://ghcr.io/linuxserver/jackett",
@@ -14213,7 +14213,7 @@
             "appVersion": "0.21.1155",
             "description": "Advanced tool to create your own TrueCharts-based App",
             "home": "https://truecharts.org/charts/stable/custom-app",
-            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png",
+            "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
             "deprecated": false,
             "sources": [
                 "https://github.com/truecharts/charts/tree/master/charts/stable/custom-app",
@@ -18940,7 +18940,7 @@
             "appVersion": "0.21.1155",
             "description": "Advanced tool to create your own TrueCharts-based App",
             "home": "https://truecharts.org/charts/stable/custom-app",
-            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png",
+            "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
             "deprecated": false,
             "sources": [
                 "https://github.com/truecharts/charts/tree/master/charts/stable/custom-app",
@@ -23514,7 +23514,7 @@
             "appVersion": "0.21.1155",
             "description": "Advanced tool to create your own TrueCharts-based App",
             "home": "https://truecharts.org/charts/stable/custom-app",
-            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png",
+            "icon": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png",
             "deprecated": false,
             "sources": [
                 "https://github.com/truecharts/charts/tree/master/charts/stable/custom-app",

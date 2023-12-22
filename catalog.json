@@ -59,7 +59,7 @@
                       "https://github.com/truecharts/charts/tree/master/charts/stable/custom-app",
                       "https://ghcr.io/linuxserver/jackett"
                   ],
-                  "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png"
+                  "icon_url": "https://cdn.jsdelivr.net/gh/xushier/HD-Icons/border-radius/Docker_registry_B.png"
               },
             "cert-manager": {
                   "app_readme": "<p>Certificate management for Kubernetes</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/enterprise/cert-manager\">https://truecharts.org/charts/enterprise/cert-manager</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
